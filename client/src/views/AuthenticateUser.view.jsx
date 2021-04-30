@@ -9,8 +9,8 @@ export default function AuthenticateUserView() {
         <div>
             <Nav />
             <Switch>
-                <Route path="/" component={Home} />
                 <Route path="/operations" component={Operations} />
+                <Route path="/" component={Home} />
             </Switch>
         </div>
     )
