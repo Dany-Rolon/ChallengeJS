@@ -3,7 +3,7 @@ import { Menu } from '@headlessui/react'
 
 export default function Nav() {
     return (
-        <nav className="flex justify-evenly p-4 bg-fuschia">
+        <nav className="flex justify-evenly p-4 bg-fuschia w-screen">
             <h1 className="font-bold text-xl text-stark">My budgets</h1>
             <MenuComponent />
         </nav>
