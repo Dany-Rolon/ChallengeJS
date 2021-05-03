@@ -5,7 +5,7 @@ import NonAuthenticaUserView from './views/NonAuthenticateUser.view'
 
 export default function App() {
 
-  const [thereIsUser, setThereIsUser] = useState(true)
+  const [thereIsUser, setThereIsUser] = useState(false)
 
   return (
     <Router>
