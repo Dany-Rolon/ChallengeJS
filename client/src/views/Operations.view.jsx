@@ -96,7 +96,7 @@ export default function Operations() {
     }
 
     return (
-        <div className="text-white">
+        <div className="text-primary">
             <Menu />
             <OperationList data={filterData} options={true}/>
         </div>
@@ -104,7 +104,7 @@ export default function Operations() {
 
     function Menu() {
         return (
-            <div className="w-full py-4 bg-jewel text-center font-semibold sticky top-0">
+            <div className="w-full py-4 bg-bg_1 text-center font-semibold sticky top-0">
                 <div className="flex justify-evenly content-center|">
                     <div className="flex">
                         <h3 className="mr-1">Filter by:</h3>
