@@ -88,7 +88,7 @@ export default function Home(){
 
     return(
         <div>
-            <OperationList data={data}/>
+            <OperationList data={data} options={false}/>
             <CurrentBalance balance={getCurrentBalance()}/>
         </div>
     )
