@@ -4,10 +4,10 @@ module.exports = {
    theme: {
      extend: {
        colors:{
-         'void': "#0e0B16",
-         'fuschia': "#a239ca",
-         'jewel': "#4717f6",
-         'stark': "#e7dfdd"
+         'primary': "#373737",
+         'secondary': "#c0b283",
+         'bg_1': "#f4f4f4",
+         'bg_2': "#dcd0c0"
        }
      },
    },
