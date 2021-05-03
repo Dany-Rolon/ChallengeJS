@@ -11,6 +11,7 @@ export default function AuthenticateUserView() {
             <Nav />
             <Switch>
                 <Route path="/create_operation" component={CreateOperationCard}/>
+                <Route path="/edit_operation" component={CreateOperationCard} />
                 <Route path="/operations" component={Operations} />
                 <Route path="/" component={Home} />
             </Switch>
