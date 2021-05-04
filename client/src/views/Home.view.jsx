@@ -9,7 +9,21 @@ export default function Home(){
             concept: 'Cobre mi sueldo',
             mount: 60000,
             date: '30 abr 2021',
-            type: 'expense',
+            type: 'income',
+            category: 'Job'
+        },
+        {
+            concept: 'Cobre mi sueldo',
+            mount: 60000,
+            date: '30 abr 2021',
+            type: 'income',
+            category: 'Job'
+        },
+        {
+            concept: 'Cobre mi sueldo',
+            mount: 60000,
+            date: '30 abr 2021',
+            type: 'income',
             category: 'Job'
         },
         {
@@ -30,21 +44,7 @@ export default function Home(){
             concept: 'Cobre mi sueldo',
             mount: 60000,
             date: '30 abr 2021',
-            type: 'expense',
-            category: 'Job'
-        },
-        {
-            concept: 'Cobre mi sueldo',
-            mount: 60000,
-            date: '30 abr 2021',
-            type: 'expense',
-            category: 'Job'
-        },
-        {
-            concept: 'Cobre mi sueldo',
-            mount: 60000,
-            date: '30 abr 2021',
-            type: 'expense',
+            type: 'income',
             category: 'Job'
         },
         {
@@ -80,7 +80,7 @@ export default function Home(){
     function getCurrentBalance(){
         let total=0
         data.forEach(item => {
-            if(item.type==="ingress") total += item.mount
+            if(item.type==="income") total += item.mount
             else total -= item.mount
         })
         return total
