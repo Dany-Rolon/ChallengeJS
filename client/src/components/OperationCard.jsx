@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 export default function OperationCard({ operation, options }) {
     return (
-        <li className="p-4 m-4 bg-bg_2 shadow-md">
-            <h6 className="font-semibold text-xl text-primary">{operation.concept}</h6>
+        <li className="p-4 m-4 bg-bg_2 shadow-xl sh rounded-md">
+            <h6 className="text-2xl mb-3 text-primary title">{operation.concept}</h6>
             <div className="flex flex-wrap justify-between">
                 <h6><b className="text-primary">Mount:</b> {operation.mount}</h6>
                 <h6 ><b className="text-primary">Type:</b><p className={`${operation.type === 'income' ? 'text-green-600' : 'text-red-600'} inline`}> {operation.type}</p>
@@ -15,9 +15,9 @@ export default function OperationCard({ operation, options }) {
 
             {
                 options ? (
-                    <div className="flex mt-4 justify-evenly">
-                        <Link to={{ pathname: "/edit_operation", item: operation }} className="px-2 border-2 border-secondary text-primary text-xl font-bold hover:bg-secondary hover:text-bg_1">Edit</Link>
-                        <button className="px-2 border-2 border-secondary text-primary text-xl font-bold hover:bg-secondary hover:text-bg_1">Delete</button>
+                    <div className="grid grid-cols-2 mt-4 ">
+                        <Link to={{ pathname: "/edit_operation", item: operation }} className="title text-center rounded-lg px-2 border-2 border-secondary text-primary text-xl font-bold hover:bg-secondary hover:text-bg_1">Edit</Link>
+                        <button className="title rounded-lg px-2 border-2 border-secondary text-primary text-xl font-bold hover:bg-red-600 hover:text-bg_1">Delete</button>
                     </div>
                 ) : null
             }
