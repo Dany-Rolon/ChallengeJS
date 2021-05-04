@@ -1,28 +1,16 @@
 const express = require('express')
 const log = require('./utils/logger')
-const mysql = require('mysql')
-
 const app = express()
+const cors = require('cors')
 
-app.get('/createdb', (req,res) => {
-    let sql = 'CREATE DATABASE mybadgets'
-    db.query(sql, (err,result) => {
-        if(err) log.error(err)
-        res.send('Database created')
-        console.log(result)
-    })
-})
+const UserRoute = require('./api/resources/user/user.routes')
 
-const db = mysql.createConnection({
-    host: 'localhost',
-    user:'root',
-    password:'',
-})
+require('./db/connection')
 
-db.connect((err) => {
-    if(err) log.error(err)
-    log.info("Connected!")
-})
+app.use(cors())
+app.use(express.json())
+
+app.use('/user', UserRoute)
 
 app.listen(4000, () => {
     log.info('Server runing on port 4000')
