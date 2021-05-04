@@ -3,8 +3,8 @@ import { Menu } from '@headlessui/react'
 
 export default function Nav() {
     return (
-        <nav className="flex justify-evenly p-4 bg-secondary w-screen">
-            <h1 className="font-bold text-xl text-primary">My budgets</h1>
+        <nav className="flex justify-between p-4 bg-secondary w-screen">
+            <h1 className="font-bold text-2xl text-bg_1 title italic">My budgets.</h1>
             <MenucomponentDesktop />
             <MenuComponentMobile />
         </nav>
@@ -14,9 +14,9 @@ export default function Nav() {
 function MenucomponentDesktop() {
     return (
         <div className="hidden md:flex">
-            <Link to="/"><p className="text-primary font-semibold pr-3 hover:underline">Home</p></Link>
-            <Link to="/operations"><p className="text-primary font-semibold pr-3 hover:underline">Budgets</p></Link>
-            <p className="text-primary font-semibold hover:underline">Sing out</p>
+            <Link to="/"><p className="text-xl text-primary font-semibold pr-3 hover:underline">Home</p></Link>
+            <Link to="/operations"><p className="text-xl text-primary font-semibold pr-3 hover:underline">Budgets</p></Link>
+            <p className="text-xl text-primary font-semibold hover:underline">Sing out</p>
         </div>
     )
 }
@@ -34,20 +34,20 @@ function MenuComponentMobile() {
                 <Menu.Item className="hover:underline font-bold">
                     {({ active }) => (
                         <Link to="/">
-                            <p className="text-primary">Home</p>
+                            <p className="text-primary text-xl">Home</p>
                         </Link>
                     )}
                 </Menu.Item>
                 <Menu.Item className="hover:underline font-bold">
                     {({ active }) => (
                         <Link to="/operations">
-                            <p className="text-primary">Budgets</p>
+                            <p className="text-primary text-xl">Budgets</p>
                         </Link>
                     )}
                 </Menu.Item>
                 <Menu.Item className="hover:underline font-bold cursor-pointer">
                     {({ active }) => (
-                        <p className="text-primary">Sing out</p>
+                        <p className="text-primary text-xl">Sing out</p>
                     )}
                 </Menu.Item>
             </Menu.Items>
