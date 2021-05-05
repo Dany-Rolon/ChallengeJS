@@ -5,10 +5,10 @@ import Operations from './Operations.view'
 import Nav from '../components/Nav'
 import CreateOperationCard from '../components/CreateOperationCard'
 
-export default function AuthenticateUserView() {
+export default function AuthenticateUserView({setThereIsUser}) {
     return (
         <div>
-            <Nav />
+            <Nav setThereIsUser={setThereIsUser}/>
             <Switch>
                 <Route path="/create_operation" component={CreateOperationCard}/>
                 <Route path="/edit_operation" component={CreateOperationCard} />
