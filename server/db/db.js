@@ -1,5 +1,6 @@
 const {Sequelize} = require('sequelize')
 const UserModel = require('../api/resources/user/user.model')
+const BudgetModel = require('../api/resources/budget/budget.model')
 const log = require('../utils/logger')
 
 const sequelize = new Sequelize('s6RGVxTaNq', 's6RGVxTaNq', 'ThXybOP1dN', {
@@ -8,6 +9,7 @@ const sequelize = new Sequelize('s6RGVxTaNq', 's6RGVxTaNq', 'ThXybOP1dN', {
 })
 
 const User = UserModel(sequelize, Sequelize)
+const Budget = BudgetModel(sequelize, Sequelize)
 
 async function AutheticateConnection(){
     try {
@@ -25,5 +27,6 @@ sequelize.sync({force:false})
     })
 
 module.exports={
-    User
+    User,
+    Budget
 }
