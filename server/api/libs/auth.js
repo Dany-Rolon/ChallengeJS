@@ -17,7 +17,8 @@ module.exports = new passportJWT.Strategy(jwtOptions, async(jwtPayload, next) =>
         }
         log.info(`Valid token. Authentication complete`)
         next(null,{
-            email: user.email
+            user: user.email,
+            id: user.id
         })
     } catch (error) {
         log.error(`Error happened trying to authenticate ${error}`)
