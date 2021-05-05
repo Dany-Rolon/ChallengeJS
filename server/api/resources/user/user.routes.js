@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const log = require('../../../utils/logger')
 const passport = require('passport')
-const errorHandler = require('../../libs/errorHandler').procesarErrores
+const errorHandler = require('../../libs/errorHandler').handleErrors
 
 const userRouter = express.Router()
 const userController = require('./user.controller')
