@@ -1,36 +1,33 @@
-const db = require('../../../db/connection')
 const log = require('../../../utils/logger')
+const {User} = require('../../../db/db')
 
-function createUser(email, password) {
-    const query = "INSERT INTO USERS (email, password) VALUES (?, ?)"
-    db.query(query, [email, password], (err, result) => {
-        if (err) throw err
-        log.info('User created')
-    })
+async function createUser(email, hashedPassword){
+    const newUser = await User.create({email:email, password:hashedPassword})
+    return newUser
 }
 
-function userExist(email) {
-    const query = "SELECT email from users WHERE email=?"
-    let res
-    db.query(query, [email], function(err,result){
-        if(err) {throw err} else {
-            res = result
-        } 
-    })
-    console.log(res)
+async function getUser({email,id}){
+    if(email){
+        const user = await User.findOne({where:{email: email}})
+        return user
+    }
+    if(id){
+        const user = await User.findOne({where:{id: id}})
+        return user
+    }
 }
 
-//Just for testing
-function getUsers() {
-    const query = "SELECT * FROM users"
-    db.query(query, (err, result) => {
-        if (err) throw err
-        return result
-    })
+async function userExist(email){
+    const user = await User.findOne({where:{email: email}})
+    if(user){
+        return true
+    } else {
+        return false
+    }
 }
 
-module.exports = {
+module.exports={
     createUser,
-    getUsers,
-    userExist
+    userExist,
+    getUser
 }
