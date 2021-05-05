@@ -1,22 +1,39 @@
 import { useState } from "react"
-import {Link} from 'react-router-dom'
+import {Register, Login} from '../helpers/userHelper'
 
-export default function NonAuthenticateUserView(){
+export default function NonAuthenticateUserView({setThereIsUser}){
 
     const [isLogin, setIsLogin] = useState(true)
+    const [repeatedPassword, setRepeatedPassword] = useState('')
+    const [user, setUser] = useState({
+        email:'',
+        password: ''
+    })
 
-    function onSubmit(e){
+    async function onSubmit(e){
         e.preventDefault()
         if(isLogin){
-            console.log('Loggin');
+            Login(user,setThereIsUser)
         } else {
-            console.log('Registering');
+            if(user.password === repeatedPassword) Register(user,setThereIsUser)
+            else alert('Make sure that passwords are equals')
         }
     }
 
     function onClick(e){
         e.preventDefault()
         setIsLogin(!isLogin)
+    }
+
+    function onChange(e){
+        setUser({
+            ...user,
+            [e.target.name] : e.target.value
+        })
+    }
+
+    function onChangeRepeatedPassword(e){
+        setRepeatedPassword(e.target.value)
     }
 
     return(
@@ -28,16 +45,16 @@ export default function NonAuthenticateUserView(){
                 }
                 
                 <h3 className="text-secondary font-bold pt-3">Email</h3>
-                <input type="text" className="w-full pl-1"/>
+                <input name="email" value={user.email} onChange={onChange} type="text" className="w-full pl-1"/>
 
                 <h3 className="text-secondary font-bold pt-3">Password</h3>
-                <input type="password" className="w-full pl-1"/>
+                <input name="password" value={user.password} onChange={onChange} type="password" className="w-full pl-1"/>
 
                 {
                     isLogin ? null : (
                         <div>
                             <h3 className="text-secondary font-bold pt-3">Repeat Password</h3>
-                            <input type="password" className="w-full pl-1"/>
+                            <input onChange={onChangeRepeatedPassword} type="password" className="w-full pl-1"/>
                         </div>
                     )
                 }
