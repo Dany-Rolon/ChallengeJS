@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import {Link} from 'react-router-dom'
+import {createBudget} from '../helpers/budgetHelper'
+import {Moment} from 'moment'
 
 export default function CreateOperationCard(props) {
 
@@ -25,6 +27,16 @@ export default function CreateOperationCard(props) {
             ...operation,
             [e.target.name]: e.target.value
         })
+    }
+
+    function onClick(e){
+        e.preventDefault()
+        if(item){
+            //edit
+        } else {
+            operation.mount = parseInt(operation.mount)
+            createBudget(operation)
+        }
     }
 
     return (
@@ -57,7 +69,7 @@ export default function CreateOperationCard(props) {
 
                 <div className="grid grid-cols-2 mt-5">
                     <Link to="/operations" className="text-center px-2 border-2 border-secondary text-jewel text-xl font-bold rounded-lg title hover:bg-secondary hover:text-bg_1">Cancel</Link>
-                    <button className="px-2 border-2 border-secondary text-fuschia text-xl font-bold rounded-lg title hover:bg-secondary hover:text-bg_1">{item ? 'Edit' : 'Create'}</button>
+                    <button onClick={onClick} className="px-2 border-2 border-secondary text-fuschia text-xl font-bold rounded-lg title hover:bg-secondary hover:text-bg_1">{item ? 'Edit' : 'Create'}</button>
                 </div>
             </form>
         </div>
