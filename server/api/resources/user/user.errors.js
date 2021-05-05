@@ -10,7 +10,7 @@ class UserDataAlreadyInUse extends Error {
 class WrongCredentials extends Error {
     constructor(message){
         super(message)
-        this.message = Message || 'Wrong credentials'
+        this.message = message || 'Wrong credentials'
         this.status = 400
         this.name = 'WrongCredentials'
     }
