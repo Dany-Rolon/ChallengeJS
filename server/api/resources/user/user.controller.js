@@ -1,4 +1,3 @@
-const log = require('../../../utils/logger')
 const {User} = require('../../../db/db')
 
 async function createUser(email, hashedPassword){
