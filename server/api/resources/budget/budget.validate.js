@@ -2,7 +2,7 @@ const Joi = require('joi')
 const log = require('../../../utils/logger')
 
 const bluePrintBudget = Joi.object({
-    concept: Joi.string().max(20).required(),
+    concept: Joi.string().max(50).required(),
     mount: Joi.number().positive().required(),
     date: Joi.string().required(),
     category: Joi.string().valid('food', 'entertainment', 'services', 'job', 'others'),
