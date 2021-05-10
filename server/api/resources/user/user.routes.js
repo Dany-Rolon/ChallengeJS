@@ -22,7 +22,7 @@ function transformBodyToLowerCase(req,res,next){
 }
 
 // Create user route
-userRouter.post('/', [validateUser,transformBodyToLowerCase], errorHandler(async(req,res) => {
+userRouter.post('/register', [validateUser,transformBodyToLowerCase], errorHandler(async(req,res) => {
     let newUser = req.body
     let userExist = await userController.userExist(newUser.email)
     if(userExist){
