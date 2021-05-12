@@ -2,6 +2,8 @@ import { useState } from 'react'
 import {register} from '../Helpers/user-helper'
 import {useDispatch} from 'react-redux'
 import {setUser} from '../redux/actions/userActions'
+import {setBudgets} from '../redux/actions/budgetsActions'
+import { getBudgets } from '../Helpers/budget-helper'
 
 export default function Register(){
     const dispatch = useDispatch()
@@ -14,6 +16,8 @@ export default function Register(){
         e.preventDefault()
         let user = await register(newUser)
         dispatch(setUser(user))
+        let data = await getBudgets()
+        dispatch(setBudgets(data))
     }
 
     function onChange(e){
