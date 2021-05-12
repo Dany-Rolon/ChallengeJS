@@ -3,14 +3,13 @@ import {initAxiosInterceptors, getToken} from './Helpers/auth-helper'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import {setUser} from './redux/actions/userActions'
+import {setBudgets} from './redux/actions/budgetsActions'
 import {whoami} from './Helpers/user-helper'
+import {getBudgets} from './Helpers/budget-helper'
 import Register from './components/Register'
 import Login from './components/Login'
 import LandingPage from './components/LandingPage'
-import Home from './components/Home'
-import BudgetsView from './components/BudgetsView'
-import BudgetDetails from './components/BudgetDetails'
-import Nav from './components/Nav'
+import AuthenticateUserView from './components/AuthenticaUserView'
 
 function App() {
   initAxiosInterceptors()
@@ -23,7 +22,11 @@ function App() {
       if(getToken()){
         let user = await whoami()
         dispatch(setUser(user))
+        
         // Charge the store with the budgets here
+        let data = await getBudgets()
+        dispatch(setBudgets(data))
+
         setThereIsuser(true)
       }
     }
@@ -32,15 +35,12 @@ function App() {
 
   return (
     <div>
-      {thereIsUser ? (<Nav />) : (null)}
       <Switch>
         {thereIsUser ? (<Redirect exact from="/" to="/home"/>) : (null)}
         <Route exact path="/" component={LandingPage}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/register" component={Register}/>
-        <Route exact path="/home" component={Home}/>
-        <Route exact path="/budgets" component={BudgetsView}/>
-        <Route exact path="/budgets/:id" component={BudgetDetails}/>
+        <AuthenticateUserView />
       </Switch>
     </div>
   );
