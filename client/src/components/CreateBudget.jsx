@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import {useHistory} from 'react-router-dom'
 import { postBudget } from '../Helpers/budget-helper'
 import {useDispatch} from 'react-redux'
 import {addBudget, updateBalance} from '../redux/actions/budgetsActions'
@@ -6,7 +7,7 @@ import moment from 'moment'
 
 export default function CreateBudget() {
     const dispatch = useDispatch()
-
+    const history = useHistory()
     const [newBudget, setNewBduget] = useState({
         concept: '',
         mount: 0,
@@ -30,6 +31,7 @@ export default function CreateBudget() {
         let result = await postBudget(newBudget)
         dispatch(addBudget(result))
         dispatch(updateBalance())
+        history.push('./budgets')
     }
 
     return (
@@ -55,7 +57,6 @@ export default function CreateBudget() {
                 {/* Category */}
                 <h3 className="font-semibold">Category</h3>
                 <select name="category" value={newBudget.category} onChange={OnChange} className="bg-warmgray-500 text-white rounded-md w-full">
-                    <option value="all">All</option>
                     <option value="food">Food</option>
                     <option value="entertainment">Entertainment</option>
                     <option value="services">Services</option>
