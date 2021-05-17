@@ -7,6 +7,13 @@ export const setBudgets = (budgets) => {
     }
 }
 
+export const editBudgets = (id, newBudget) => {
+    return {
+        type: ActionTypes.EDIT_BUDGETS,
+        payload: {id, newBudget}
+    }
+}
+
 export const updateBalance = () => {
     return {
         type: ActionTypes.UPDATE_BALANCE
@@ -27,8 +34,9 @@ export const selectedBudget = (budget) => {
     }
 }
 
-export const removeSelectedBudget = () => {
+export const removeSelectedBudget = (id) => {
     return {
-        type: ActionTypes.REMOVE_SELECTED_BUDGET
+        type: ActionTypes.REMOVE_SELECTED_BUDGET,
+        payload: id
     }
 }
