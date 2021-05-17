@@ -7,6 +7,14 @@ async function getBudgets(){
     }
 }
 
+async function postBudget(budget){
+    const {data, status} = await axios.post('http://localhost:4000/budget', budget)
+    if(status === 200){
+        return data
+    }
+}
+
 export {
-    getBudgets
+    getBudgets,
+    postBudget
 }
