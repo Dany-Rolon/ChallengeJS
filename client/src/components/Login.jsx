@@ -3,7 +3,7 @@ import { login } from '../Helpers/user-helper'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../redux/actions/userActions'
 import { getBudgets } from '../Helpers/budget-helper'
-import {setBudgets} from '../redux/actions/budgetsActions'
+import { setBudgets } from '../redux/actions/budgetsActions'
 import { Redirect } from 'react-router'
 
 export default function Login() {
@@ -32,20 +32,22 @@ export default function Login() {
     }
 
     return (
-        isLogin ? (<Redirect to="/home"/>) : (
-            <div>
-                <h1>Login</h1>
+        isLogin ? (<Redirect to="/home" />) : (
+            <div className="p-10 rounded-lg border-4 border-white">
+                <h1 className="text-center text-4xl font-semibold">Login</h1>
                 <form onSubmit={Login}>
-                    <p>Email: </p>
-                    <input type="text" name="email" onChange={onChange} value={newUser.email} />
-                    <br />
-                    <p>Password: </p>
-                    <input type="password" name="password" onChange={onChange} value={newUser.password} />
-                    <br />
-                    <button type="submit">Submit</button>
+
+                    {/* Email input */}
+                    <h4 className="text-xl font-semibold">Email: </h4>
+                    <input type="text" name="email" onChange={onChange} value={newUser.email} className="w-full text-black pl-0.5"/>
+
+                    {/* Password input */}
+                    <h4 className="text-xl font-semibold pt-4">Password: </h4>
+                    <input type="password" name="password" onChange={onChange} value={newUser.password} className="w-full text-black pl-0.5"/>
+
+                    <button type="submit" className="text-center w-full p-1 border rounded-lg mt-4 font-bold hover:bg-white hover:text-warmgray-700">Submit</button>
                 </form>
             </div>
         )
-
     )
 }
