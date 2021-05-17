@@ -12,8 +12,8 @@ export default function AuthenticateUserView() {
             <div className="mt-16">
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/budgets" component={BudgetsView} />
-                <Route exact path="/budgets/:id" component={BudgetDetails} />
                 <Route exact path="/createBudget" component={CreateBudget} />
+                <Route exact path="/budgets/:id" component={BudgetDetails} />
             </div>
         </div>
     )
