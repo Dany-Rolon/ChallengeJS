@@ -28,7 +28,7 @@ export default function BudgetsView() {
     return (
         <div>
             <FilterMenu />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 container mx-auto mb-14 mt-4 gap gap-y-4">
+            <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 container mx-auto mb-14 mt-4 gap gap-y-4">
                 {budgets.filter(filterByType).filter(filterByCategory).map(item => <BudgetCard b={item} key={item.id} options={true} />)}
             </div>
         </div>
