@@ -1,16 +1,20 @@
-import {Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Home from './Home'
 import BudgetsView from './BudgetsView'
 import BudgetDetails from './BudgetDetails'
 import Nav from './Nav'
+import CreateBudget from './CreateBudget'
 
-export default function AuthenticateUserView(){
-    return(
-        <>
+export default function AuthenticateUserView() {
+    return (
+        <div className="grid grid-cols-1">
             <Nav />
-            <Route exact path="/home" component={Home}/>
-            <Route exact path="/budgets" component={BudgetsView}/>
-            <Route exact path="/budgets/:id" component={BudgetDetails}/>
-        </>
+            <div className="mt-16">
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/budgets" component={BudgetsView} />
+                <Route exact path="/budgets/:id" component={BudgetDetails} />
+                <Route exact path="/createBudget" component={CreateBudget} />
+            </div>
+        </div>
     )
 }
