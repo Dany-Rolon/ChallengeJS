@@ -6,8 +6,6 @@ import {setUser} from './redux/actions/userActions'
 import {setBudgets} from './redux/actions/budgetsActions'
 import {whoami} from './Helpers/user-helper'
 import {getBudgets} from './Helpers/budget-helper'
-import Register from './components/Register'
-import Login from './components/Login'
 import LandingPage from './components/LandingPage'
 import AuthenticateUserView from './components/AuthenticaUserView'
 
@@ -38,8 +36,6 @@ function App() {
       <Switch>
         {thereIsUser ? (<Redirect exact from="/" to="/home"/>) : (null)}
         <Route exact path="/" component={LandingPage}/>
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/register" component={Register}/>
         <AuthenticateUserView />
       </Switch>
     </div>
