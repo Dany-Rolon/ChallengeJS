@@ -5,7 +5,7 @@ import {userReducer} from './userReducers'
 const reducers = combineReducers({
     allBudgets: budgetReducer,
     budgetSelected: selectedBudgetReducer,
-    user: userReducer
+    user: userReducer,
 })
 
 export default reducers
