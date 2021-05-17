@@ -7,7 +7,7 @@ export default function Nav() {
     function onClick(e) {
         e.preventDefault()
         deleteToken()
-        history.push('./')
+        history.push('../')
     }
 
     return (
