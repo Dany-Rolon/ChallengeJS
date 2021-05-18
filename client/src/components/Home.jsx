@@ -8,7 +8,7 @@ export default function Home() {
     // Tomar solo los primeros 10!!!
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container mx-auto mb-16 mt-4 gap gap-y-4 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 container mx-auto mb-16 mt-4 gap gap-y-4 ">
                 {
                     budgets.map(item =>
                         <BudgetCard b={item} key={item.id} />
