@@ -5,6 +5,7 @@ import { setUser } from '../redux/actions/userActions'
 import { setBudgets } from '../redux/actions/budgetsActions'
 import { getBudgets } from '../Helpers/budget-helper'
 import { Redirect } from 'react-router'
+import Loading from '../components/Loading'
 
 export default function Register() {
     const dispatch = useDispatch()
@@ -13,9 +14,11 @@ export default function Register() {
         password: ''
     })
     const [isLogin, setIsLogin] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     async function Register(e) {
         e.preventDefault()
+        setLoading(true)
         let user = await register(newUser)
         dispatch(setUser(user))
         let data = await getBudgets()
@@ -34,6 +37,7 @@ export default function Register() {
     return (
         isLogin ? (<Redirect to="/home" />) : (
             <div className="p-10 rounded-lg border-4 border-white">
+                {loading ? <Loading /> : null}
                 <h1 className="text-center text-4xl font-semibold">Register</h1>
                 <form onSubmit={Register}>
 

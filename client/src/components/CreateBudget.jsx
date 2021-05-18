@@ -4,6 +4,7 @@ import { postBudget } from '../Helpers/budget-helper'
 import {useDispatch} from 'react-redux'
 import {addBudget, updateBalance} from '../redux/actions/budgetsActions'
 import moment from 'moment'
+import Loading from './Loading'
 
 export default function CreateBudget() {
     const dispatch = useDispatch()
@@ -14,6 +15,7 @@ export default function CreateBudget() {
         type: 'income',
         category: 'others'
     })
+    const [loading, setLoading] = useState(false)
 
     function OnChange(e){
         e.preventDefault()
@@ -25,6 +27,7 @@ export default function CreateBudget() {
 
     async function OnSubmit(e){
         e.preventDefault()
+        setLoading(true)
         newBudget.mount = parseInt(newBudget.mount)
         let date = moment()
         newBudget.date = date.format('dddd Do MMMM YYYY')
@@ -36,6 +39,7 @@ export default function CreateBudget() {
 
     return (
         <div className="container mx-auto">
+            {loading ? <Loading /> : null}
             <form className="m-10 sm:m-14 lg:m-28" onSubmit={OnSubmit}>
                 <h1 className="text-3xl font-bold">Create a budget</h1>
 

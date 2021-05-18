@@ -3,6 +3,7 @@ import {useHistory} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {editBudgets, updateBalance} from '../redux/actions/budgetsActions'
 import {editBudget} from '../Helpers/budget-helper'
+import Loading from './Loading'
 
 export default function BudgetDetails() {
     const history = useHistory()
@@ -13,6 +14,7 @@ export default function BudgetDetails() {
         mount:budgetFromStore.mount,
         category: budgetFromStore.category
     })
+    const [loading, setLoading] = useState(false) 
 
     function onChange(e){
         e.preventDefault()
@@ -24,17 +26,20 @@ export default function BudgetDetails() {
 
     async function onSubmit(e){
         e.preventDefault()
+        setLoading(true)
         budget.mount = parseInt(budget.mount)
         budget.type = budgetFromStore.type
         budget.date = budgetFromStore.date
         let ok = await editBudget(budget, budgetFromStore.id)
         dispath(editBudgets(budgetFromStore.id, budget))
         dispath(updateBalance())
+        setLoading(false)
         history.push('/budgets')
     }
 
     return (
         <div className="grid grid-cols-1 w-screen mt-20 justify-items-center place-content-center">
+            {loading ? <Loading /> : null}
             <div className="container mx-auto">
                 <form className="m-10 sm:m-14 lg:m-28" onSubmit={onSubmit}>
                     <h1 className="text-3xl font-bold">Edit</h1>
