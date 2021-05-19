@@ -8,6 +8,8 @@ const authJWT = require('./api/libs/auth')
 const UserRoute = require('./api/resources/user/user.routes')
 const BudgetRoute = require('./api/resources/budget/budget.routes')
 
+const PORT = 4000 || process.env.port
+
 //Connection to DB
 require('./db/db')
 
@@ -21,6 +23,6 @@ app.use(passport.initialize())
 app.use('/user', UserRoute)
 app.use('/budget', BudgetRoute)
 
-app.listen(4000, () => {
-    log.info('Server runing on port 4000')
+app.listen(PORT, () => {
+    log.info(`Server running on port ${PORT}`)
 })
