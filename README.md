@@ -14,7 +14,7 @@ Utilice React como framework y TailwindCss para dar estilo a página. También u
 ---
 
 ## Pruebalo
-***Es necesario tener instalado Node***
+***Es necesario tener instalado Node.***
 Una vez clonado el repositorio abrir dos consolas (una para el servidor y otra para el cliente)
 Una vez situados en las carpetas 'server' y 'client', para instalar las dependencias, ejecutar el comando:
 ```
