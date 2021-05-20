@@ -22,8 +22,12 @@ async function deleteBudget(id){
 }
 
 async function editBudget(budget, id){
-    const result = await axios.put(`http://localhost:4000/budget/edit/${id}`, budget)
-    console.log('Edit budget', result)
+    const {state} = await axios.put(`http://localhost:4000/budget/edit/${id}`, budget)
+    if(state === 200){
+        return true
+    } else {
+        return false
+    }
 } 
 
 export {
