@@ -10,7 +10,7 @@ async function createBudget(item, userID){
 }
 
 async function getBudgets(userID){
-    const result = await Budget.findAll({where:{user_id : userID}})
+    const result = await Budget.findAll({where:{user_id : userID}, order:[['id', 'DESC']]})
     return result
 }
 
