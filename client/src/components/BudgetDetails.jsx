@@ -31,10 +31,15 @@ export default function BudgetDetails() {
         budget.type = budgetFromStore.type
         budget.date = budgetFromStore.date
         let ok = await editBudget(budget, budgetFromStore.id)
-        dispath(editBudgets(budgetFromStore.id, budget))
-        dispath(updateBalance())
-        setLoading(false)
-        history.push('/budgets')
+        if(ok){
+            dispath(editBudgets(budgetFromStore.id, budget))
+            dispath(updateBalance())
+            setLoading(false)
+            history.push('/budgets')
+        } else {
+            setLoading(false)
+            console.log('There was an error trying to edit a budget');
+        }
     }
 
     return (
