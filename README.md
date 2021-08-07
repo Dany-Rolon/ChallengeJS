@@ -13,7 +13,7 @@ Esta es mi resolución al challenge que ofrece Alkemy. Decidí resolver el de Ja
 Utilice NodeJs, el framework Express y el ORM Sequelize para manejar una base de datos relacional (MySql) alojada en la página [remotemysql](https://remotemysql.com/). También utilice distintas dependencias como, por ejemplo: bcrypt, joi, passport y winston.
 
 #### Frontend
-Utilice React como framework y TailwindCss para dar estilo a página. También utilice distintas tecnologías y demencias como, por ejemplo: axios, react-router y redux.
+Utilice React como framework y TailwindCss para dar estilo a página. También utilice distintas tecnologías y dependencias como, por ejemplo: axios, react-router y redux.
 
 ---
 
